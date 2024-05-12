@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+      overflow: hidden;
+    }
+    .d {
+      background-image: url(https://i.pinimg.com/564x/a0/d1/6f/a0d16fc004400b6f528d0387f605e42d.jpg);
+      background-size: cover;
+      width: 300px;
+      height: 400px;
+      box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+      animation-name: i;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      margin-top: 20px; /* تعديل المسافة بين العنصر والأزرار */
+    }
+
+    @keyframes i {
+      0%   {box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;}
+      25%  {box-shadow: rgba(46, 188, 240, 0.4) -5px 5px;}
+      50%  {box-shadow: rgb(88, 46, 240) -20px 20px;}
+      75%  {box-shadow: rgb(240, 46, 95) -20px 20px;}
+      100% {box-shadow: rgb(240, 46, 46) -20px 20px;}
+    }
+
+    button {
+      margin-bottom: 10px;
+    }
+    .button {
+  background-color: #ffffff00;
+  color: #fff;
+  width: 8.5em;
+  height: 2.9em;
+  border: #3654ff 0.2em solid;
+  border-radius: 11px;
+  transition: all 0.6s ease;
+}
+
+.button:hover {
+  background-color: #3654ff;
+  cursor: pointer;
+}
+
+
+  </style>
+</head>
+<body>
+  
+<button class="button"  onclick="changeBackground('https://i.pinimg.com/564x/b4/d2/a4/b4d2a4c833dfba618616ed30f52e2118.jpg')">
+
+
+  
+  
+    joshoua
+  
+
+</button>
+<button class="button"  onclick="changeBackground('https://i.pinimg.com/564x/a0/d1/6f/a0d16fc004400b6f528d0387f605e42d.jpg')">
+
+  
+
+  
+    soby
+ 
+
+</button>
+ 
+  <div class="d" id="d" onclick="showHeartsAndButterflies()"></div>
+
+  <script>
+    function changeBackground(imageUrl) {
+      document.getElementById('d').style.backgroundImage = `url(${imageUrl})`;
+    }
+
+    function showHeartsAndButterflies() {
+      var intervalId = setInterval(function() {
+        // إنشاء القلوب والفراشات بشكل عشوائي
+        var heart = document.createElement("img");
+        heart.src = "https://emojicdn.elk.sh/🩷";
+        heart.style.position = "absolute";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+        heart.style.width = "50px";
+        heart.style.height = "50px";
+        
+
+     
+
+        var butterfly = document.createElement("img");
+        butterfly.src = "https://emojicdn.elk.sh/🦋";
+        butterfly.style.position = "absolute";
+        butterfly.style.left = Math.random() * window.innerWidth + "px";
+        butterfly.style.top = Math.random() * window.innerHeight + "px";
+        butterfly.style.width = "50px";
+        butterfly.style.height = "50px";
+
+        // إضافة القلوب والفراشات إلى الصفحة
+        document.body.appendChild(heart);
+       
+        document.body.appendChild(butterfly);
+
+        // إزالة القلب والفراشة بعد 5 ثواني
+        setTimeout(function() {
+          document.body.removeChild(heart);
+          
+          document.body.removeChild(butterfly);
+        }, 5000);
+      }, 100); // كل 0.1 ثانية
+
+      // إيقاف تكرار إنشاء القلوب والفراشات بعد 10 ثواني
+      setTimeout(function() {
+        clearInterval(intervalId);
+      }, 10000);
+    }
+  </script>
+</body>
+</html>
